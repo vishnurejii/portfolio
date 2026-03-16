@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import {  menu, close } from "../assets";
+import { menu, close, logo } from "../assets";
 import { NAV_LINKS } from "../constants";
 import { styles } from "../styles";
 import { cn } from "../utils/lib";
@@ -49,7 +49,7 @@ export const Navbar = ({ hide }: NavbarProps) => {
             window.scrollTo(0, 0);
           }}
         >
-          <img  alt="Logo" className="w-9 h-9 object-contain" />
+          <img src={logo} alt="Logo" className="w-9 h-9 object-contain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
             Vishnu&nbsp;<span className="sm:block hidden">| Developer</span>
           </p>

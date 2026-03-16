@@ -115,6 +115,15 @@ export const Contact = () => {
         >
           <p className={styles.sectionSubText}>Get in touch</p>
           <h3 className={styles.sectionHeadText}>Contact Me</h3>
+          <p className="mt-2 text-secondary text-sm">
+            📧{" "}
+            <a
+              href="mailto:vishnurejii2003@gmail.com"
+              className="text-[#10b981] hover:underline"
+            >
+              vishnurejii2003@gmail.com
+            </a>
+          </p>
 
           <form
             ref={formRef}

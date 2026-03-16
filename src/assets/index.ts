@@ -5,6 +5,7 @@ import backend from "./backend.png";
 import bulb from "./bulb.svg";
 import close from "./close.svg";
 import creator from "./creator.png";
+import logo from "./logo.svg";
 import menu from "./menu.svg";
 import mobile from "./mobile.png";
 import preview from "./preview.png";
@@ -50,6 +51,7 @@ export {
   bulb,
   close,
   creator,
+  logo,
   menu,
   mobile,
   preview,

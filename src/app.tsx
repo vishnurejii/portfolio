@@ -10,10 +10,11 @@ import {
   StarsCanvas,
   TimelineSection,
   ProjectDetails,
+  Certifications,
 } from "./components";
 import Banner from "./components/banner";
 import Footer from "./components/footer";
-import { EDUCATION, EXPERIENCE, CERTIFICATIONS, TRAININGS } from "./constants";
+import { EDUCATION, EXPERIENCE, TRAININGS } from "./constants";
 
 // Portfolio Home Page
 const PortfolioHome = ({ hide }: { hide: boolean }) => (
@@ -29,7 +30,7 @@ const PortfolioHome = ({ hide }: { hide: boolean }) => (
     {/* New Separated Timelines */}
     <TimelineSection idName="experience" subText="My Professional Journey" headText="Experience" items={EXPERIENCE} />
     <TimelineSection idName="education" subText="My Academic Background" headText="Education" items={EDUCATION} />
-    <TimelineSection idName="certifications" subText="My Credentials" headText="Certifications" items={CERTIFICATIONS} />
+    <Certifications />
     <TimelineSection idName="training" subText="My Skill Development" headText="Training" items={TRAININGS} />
 
     {/* <Feedbacks /> */}

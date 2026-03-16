@@ -12,6 +12,7 @@ import { Tech } from "./tech";
 import { Works } from "./works";
 import { TimelineSection } from "./timeline";
 import { ProjectDetails } from "./ProjectDetails";
+import { Certifications } from "./certifications";
 
 export {
   About,
@@ -26,4 +27,5 @@ export {
   Works,
   TimelineSection,
   ProjectDetails,
+  Certifications,
 };

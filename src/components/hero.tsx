@@ -38,7 +38,7 @@ export const Hero = () => {
           <div className="mt-5 flex flex-wrap gap-4 relative z-10 pointer-events-auto">
             <a href="https://github.com/vishnurejii" target="_blank" rel="noopener noreferrer" className="bg-tertiary py-2 px-6 rounded-xl text-white font-bold shadow-md shadow-primary hover:bg-slate-700 hover:-translate-y-1 transition duration-300">GitHub</a>
             <a href="https://linkedin.com/in/vishnurejii" target="_blank" rel="noopener noreferrer" className="bg-tertiary py-2 px-6 rounded-xl text-white font-bold shadow-md shadow-primary hover:bg-slate-700 hover:-translate-y-1 transition duration-300">LinkedIn</a>
-            <a href="mailto:vishnurejii@gmail.com" className="bg-tertiary py-2 px-6 rounded-xl text-white font-bold shadow-md shadow-primary hover:bg-slate-700 hover:-translate-y-1 transition duration-300">Email</a>
+            <a href="mailto:vishnurejii2003@gmail.com" className="bg-tertiary py-2 px-6 rounded-xl text-white font-bold shadow-md shadow-primary hover:bg-slate-700 hover:-translate-y-1 transition duration-300">Email</a>
             <a href="/cv.pdf" download className="bg-emerald-500 py-2 px-6 rounded-xl text-white font-bold shadow-md shadow-primary hover:bg-emerald-600 hover:-translate-y-1 transition duration-300 animate-pulse">Download CV</a>
           </div>
         </motion.div>
