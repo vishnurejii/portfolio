@@ -188,7 +188,7 @@ export const Certifications = () => {
         {/* Section Title */}
         <motion.div variants={textVariant()}>
           <p className={styles.sectionSubText}>My Credentials</p>
-          <h2 className={styles.sectionHeadText}>Certifications</h2>
+          <h2 className={styles.sectionHeadText}>Industry Level Certifications</h2>
         </motion.div>
 
         {/* Subtitle */}

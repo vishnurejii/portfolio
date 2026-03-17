@@ -1,0 +1,2 @@
+﻿src/components/about.tsx(1,22): error TS2307: Cannot find module 'react-tilt' or its corresponding type declarations.
+src/components/works.tsx(1,22): error TS2307: Cannot find module 'react-tilt' or its corresponding type declarations.
