@@ -18,6 +18,12 @@ export const Contact = () => {
     message: "",
   });
 
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
+
   const [loading, setLoading] = useState(false);
 
   // handle form change
@@ -26,43 +32,25 @@ export const Contact = () => {
   ) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
+    // Clear error when user starts typing
+    if (errors[name as keyof typeof errors]) {
+      setErrors({ ...errors, [name]: false });
+    }
   };
 
   // validate form
   const validateForm = () => {
     const { name, email, message } = form;
+    const newErrors = {
+      name: name.trim().length < 3,
+      email: !email.trim().toLowerCase().match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      ),
+      message: message.trim().length < 5,
+    };
 
-    const nameError = document.querySelector("#name-error")!;
-    const emailError = document.querySelector("#email-error")!;
-    const messageError = document.querySelector("#message-error")!;
-
-    let valid = true;
-
-    if (name.trim().length < 3) {
-      nameError.classList.remove("hidden");
-      valid = false;
-    } else {
-      nameError.classList.add("hidden");
-    }
-
-    const email_regex =
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    if (!email.trim().toLowerCase().match(email_regex)) {
-      emailError.classList.remove("hidden");
-      valid = false;
-    } else {
-      emailError.classList.add("hidden");
-    }
-
-    if (message.trim().length < 5) {
-      messageError.classList.remove("hidden");
-      valid = false;
-    } else {
-      messageError.classList.add("hidden");
-    }
-
-    return valid;
+    setErrors(newErrors);
+    return !newErrors.name && !newErrors.email && !newErrors.message;
   };
 
   // submit form
@@ -84,7 +72,9 @@ export const Contact = () => {
           to_email: import.meta.env.VITE_APP_EMAILJS_RECIEVER,
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_KEY,
+        {
+          publicKey: import.meta.env.VITE_APP_EMAILJS_KEY,
+        },
       )
       .then(() =>
         toast.success(
@@ -143,9 +133,11 @@ export const Contact = () => {
                 className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
               />
 
-              <span className="text-red-400 mt-2 hidden" id="name-error">
-                Invalid Name!
-              </span>
+              {errors.name && (
+                <span className="text-red-400 mt-2" id="name-error">
+                  Invalid Name!
+                </span>
+              )}
             </label>
 
             {/* Email */}
@@ -161,9 +153,11 @@ export const Contact = () => {
                 className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
               />
 
-              <span className="text-red-400 mt-2 hidden" id="email-error">
-                Invalid Email!
-              </span>
+              {errors.email && (
+                <span className="text-red-400 mt-2" id="email-error">
+                  Invalid Email!
+                </span>
+              )}
             </label>
 
             {/* Message */}
@@ -179,9 +173,11 @@ export const Contact = () => {
                 className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
               />
 
-              <span className="text-red-400 mt-2 hidden" id="message-error">
-                Invalid Message!
-              </span>
+              {errors.message && (
+                <span className="text-red-400 mt-2" id="message-error">
+                  Invalid Message!
+                </span>
+              )}
             </label>
 
             {/* Submit Button */}
