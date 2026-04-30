@@ -1,5 +1,6 @@
 import * as React from "react";
 import ReactDOM from "react-dom/client";
+import emailjs from "@emailjs/browser";
 import { Toaster } from "sonner";
 
 import App from "./app";
@@ -7,6 +8,11 @@ import App from "./app";
 import "./index.css";
 
 const rootEl = document.getElementById("root");
+
+// Initialize EmailJS
+emailjs.init({
+  publicKey: import.meta.env.VITE_APP_EMAILJS_KEY,
+});
 
 // Render react app
 ReactDOM.createRoot(rootEl!).render(

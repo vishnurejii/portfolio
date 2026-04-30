@@ -61,6 +61,18 @@ export const Contact = () => {
 
     setLoading(true);
 
+    console.log("Attempting to send email with params:", {
+      serviceId: import.meta.env.VITE_APP_SERVICE_ID,
+      templateId: import.meta.env.VITE_APP_TEMPLATE_ID,
+      form: {
+        from_name: form.name,
+        to_name: "Vishnu",
+        from_email: form.email.trim().toLowerCase(),
+        to_email: import.meta.env.VITE_APP_EMAILJS_RECIEVER,
+        message: form.message,
+      },
+    });
+
     emailjs
       .send(
         import.meta.env.VITE_APP_SERVICE_ID,
@@ -72,18 +84,16 @@ export const Contact = () => {
           to_email: import.meta.env.VITE_APP_EMAILJS_RECIEVER,
           message: form.message,
         },
-        {
-          publicKey: import.meta.env.VITE_APP_EMAILJS_KEY,
-        },
       )
-      .then(() =>
+      .then((response) => {
+        console.log("EmailJS Success:", response);
         toast.success(
           "Thank you for contacting Vishnu. I will get back to you soon!",
-        ),
-      )
+        );
+      })
       .catch((error) => {
-        console.log("[CONTACT_ERROR]: ", error);
-        toast.error("Something went wrong. Please try again.");
+        console.error("EmailJS Error details:", error);
+        toast.error(`Error: ${error?.text || "Something went wrong"}. Please check console.`);
       })
       .finally(() => {
         setLoading(false);
