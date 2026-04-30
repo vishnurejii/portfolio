@@ -9,6 +9,8 @@ import "./index.css";
 
 const rootEl = document.getElementById("root");
 
+console.log("Vite Env Variables:", import.meta.env);
+
 // Initialize EmailJS
 emailjs.init({
   publicKey: import.meta.env.VITE_APP_EMAILJS_KEY,

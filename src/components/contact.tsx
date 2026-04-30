@@ -93,7 +93,7 @@ export const Contact = () => {
       })
       .catch((error) => {
         console.error("EmailJS Error details:", error);
-        toast.error(`Error: ${error?.text || "Something went wrong"}. Please check console.`);
+        toast.error(`Error: ${error?.text || "Something went wrong"}. Service ID: ${import.meta.env.VITE_APP_SERVICE_ID || "undefined"}. Please check console.`);
       })
       .finally(() => {
         setLoading(false);
