@@ -93,7 +93,7 @@ export const Contact = () => {
       })
       .catch((error) => {
         console.error("EmailJS Error details:", error);
-        toast.error(`Error: ${error?.text || "Something went wrong"}. Please check your EmailJS dashboard.`);
+        toast.error(`Error: ${error?.text || "Something went wrong"}. Service ID: ${import.meta.env.VITE_APP_SERVICE_ID || "undefined"}. Please check console.`);
       })
       .finally(() => {
         setLoading(false);
@@ -118,10 +118,10 @@ export const Contact = () => {
           <p className="mt-2 text-secondary text-sm">
             📧{" "}
             <a
-              href="mailto:vishnurejii2003@gmail.com"
+              href="mailto:vishnucr307@gmail.com"
               className="text-[#10b981] hover:underline"
             >
-              vishnurejii2003@gmail.com
+              vishnucr307@gmail.com
             </a>
           </p>
 
